@@ -1,0 +1,120 @@
+SITEWATCH OPERATIONS DECISION HANDBOOK
+Building & Construction Safety Authority — Field Reference v4.1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 1: WIND THRESHOLDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1.1 Tower Crane Operations
+  Green  (below 38 km/h):  Full operations permitted.
+  Amber  (38–50 km/h):     Reduce loads to 60% SWL. Supervisor on site.
+  Red    (50–65 km/h):     Suspend all lifts. Secure all suspended loads.
+  Black  (above 65 km/h):  Evacuate all elevated positions immediately.
+  NOTE: If gust exceeds sustained wind by >15 km/h, apply the next tier.
+
+1.2 Scaffolding & Formwork
+  Erection/Dismantling:    Suspend above 45 km/h.
+  Occupied scaffolding:    Suspend above 55 km/h.
+  Temporary formwork:      Inspect and re-brace above 60 km/h.
+
+1.3 Rooftop & Facade Work
+  General rooftop access:  Suspend above 40 km/h sustained.
+  Glazing / cladding:      Suspend above 30 km/h (large panel sail effect).
+  Facade abseiling:        Suspend above 25 km/h.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 2: TEMPERATURE THRESHOLDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2.1 Concrete Works
+  Below 4°C:    Hot mix required. Insulating blankets post-pour. Extended cure 14 days.
+  4°C – 10°C:   Standard mix. Monitor curing temperature every 2 hours.
+  10°C – 32°C:  Standard conditions. 7-day minimum cure.
+  32°C – 38°C:  Shade aggregate and water. Chilled water preferred. Night pours advised.
+  Above 38°C:   Night pours mandatory. Chilled water in mix required.
+  CRITICAL: Do not allow concrete to freeze within first 48 hours of pour.
+
+2.2 Structural Steel
+  Welding below -10°C:     Pre-heat steel to 50°C before welding.
+  Painting/coating:        Suspend below 5°C or above 40°C. Relative humidity >85% also suspends.
+
+2.3 Worker Heat Stress (Apparent Temperature)
+  27–32°C:   10-minute shade break every 45 minutes. Hydration mandatory.
+  32–39°C:   Buddy system. 15-minute break every 30 minutes. Supervisor monitoring.
+  39–46°C:   Reduce physical intensity. 20-minute break every 20 minutes.
+  Above 46°C: Suspend all outdoor work. Emergency cool areas only.
+
+2.4 Cold Stress (Wind Chill Temperature)
+  -10°C to -20°C:  15-minute warm break every 30 minutes.
+  Below -20°C:     Suspend outdoor work. Emergency shelter protocol.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 3: RAIN & PRECIPITATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3.1 Concrete Pouring
+  Rain intensity:
+    Below 2 mm/hr:   Proceed with tenting where possible.
+    2–4 mm/hr:       Delay pour unless full-span tenting is in place.
+    Above 4 mm/hr:   Suspend all open concrete works.
+
+3.2 Excavation & Earthworks
+  Rainfall >10 mm in past 24 hours: Assess slope stability before resuming.
+  Active rainfall any intensity:     Suspend trenching within 2m of structures.
+  Ponding on site:                   Suspend all excavation until drainage confirmed.
+
+3.3 Electrical & Mechanical Works (Outdoor)
+  Any active rain:   Suspend all outdoor electrical connection work.
+  Post-rain:         30-minute dry period required before resuming outdoor electrical.
+
+3.4 Demolition
+  Wind + rain combined:  Lower wind thresholds by 15% for all demolition activities.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 4: LIGHTNING PROTOCOL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Lightning within 15 km:   Alert all elevated workers. Cease crane operations.
+Lightning within 8 km:    Evacuate all scaffold and elevated positions.
+Lightning within 3 km:    Full site stand-down. All workers to internal shelter.
+Resume criteria:          30-minute clear period after last lightning within 15 km.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 5: VISIBILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vehicle movements:        Suspend site traffic if visibility below 50m.
+Crane operations:         Rigger must have continuous visual contact with load.
+Rooftop work:             Minimum 150m visibility. Fog/mist: postpone.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 6: MORNING BRIEFING REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Every morning before 07:00, the Site Manager must confirm:
+  □ 6-hour weather forecast reviewed.
+  □ Any amber/red/black conditions documented in site log.
+  □ All supervisors briefed on day's restrictions.
+  □ Crane operator wind checks completed (ground + boom tip).
+  □ Concrete pours scheduled only if temperature window is confirmed.
+
+Weather risk rating:
+  LOW:      All conditions green. Full operations.
+  MEDIUM:   One amber condition. Heightened monitoring required.
+  HIGH:     Red condition present OR two amber simultaneously.
+  CRITICAL: Black condition OR lightning within 8 km.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER 7: ESCALATION MATRIX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Risk LOW or MEDIUM:   Site Manager authority. Log decision.
+Risk HIGH:            Site Manager + Safety Officer sign-off required.
+Risk CRITICAL:        Site Manager + Safety Officer + Client HSE Rep.
+                      All work suspended pending joint assessment.
+
+Any weather-related near-miss or injury: Report to Safety Officer within 15 minutes.
+HSEMS entry required within 2 hours for any go/no-go decision at HIGH or above.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF DOCUMENT
