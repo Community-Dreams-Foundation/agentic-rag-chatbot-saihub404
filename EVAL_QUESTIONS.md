@@ -17,7 +17,7 @@
 
 Expected Output:
 - Specific km/h value (38 km/h)
-- Citation: `[Source 1: sitewatch_handbook.txt, chunk N]`
+- Inline citation format: `[1]` in text, Sources block at end listing `[1] sitewatch_handbook.txt, chunk N`
 - Does NOT invent a number not present in the document
 
 ---
@@ -104,11 +104,13 @@ Expected Output:
 - Bot acknowledges role: *"Understood — noted that you are the site safety officer."*
 
 Verification:
-- Open `USER_MEMORY.md` → should contain a line like:
+- Open `USER_MEMORY.md` (or `users/<manager_id>/USER_MEMORY.md` if a Manager ID is set in the sidebar)
+  → should contain a line like:
   ```
   - User is the site safety officer.
   ```
-- Should **NOT** contain verbatim transcripts or filler phrases
+- Also check active works get stored: `- Active crane operations on level 12.`
+- Should **NOT** contain verbatim transcripts, weather readings, or assistant advice
 
 ---
 
@@ -120,9 +122,10 @@ Expected Output:
 - Bot confirms it has noted the site-specific rule
 
 Verification:
-- Open `COMPANY_MEMORY.md` → should contain:
+- Open `COMPANY_MEMORY.md` (or `users/<manager_id>/COMPANY_MEMORY.md` if a Manager ID is set)
+  → should contain:
   ```
-  - Sydney CBD scaffolding wind limit is 25 km/h (stricter than the national 38 km/h standard).
+  - Sydney CBD scaffolding wind limit is 25 km/h (council mandate, stricter than national standard).
   ```
 - This should go to `COMPANY_MEMORY.md`, **not** `USER_MEMORY.md`
 
@@ -170,7 +173,7 @@ Expected Output:
   - `✅ GO` / `⚠️ CONDITIONAL` / `🛑 SUSPENDED`
   - Each activity uses its **own** threshold (crane ≠ glazing ≠ scaffolding)
 - Overall Site Risk: `LOW / MEDIUM / HIGH / CRITICAL`
-- Every handbook claim cited with `[Source N: sitewatch_handbook.txt, chunk X]`
+- Handbook claims cited with inline `[1]` / `[2]` numbers; Sources block lists `[1] sitewatch_handbook.txt, chunk X`
 
 ---
 
@@ -210,11 +213,12 @@ Expected Output:
 ## Quick Demo Script (3 minutes)
 
 ```
-1. make web          → opens localhost:8501
-2. Upload sitewatch_handbook.txt in the sidebar (auto-indexed)
-3. "I'm the site manager. Active works: crane, concrete pour Level 4, glazing facade."
-4. "Give me my morning briefing for the Sydney CBD site."
-5. Watch: three source pills appear (📖 Handbook · 🌤 Weather · 🧠 Profile)
-          → streaming cited briefing with per-activity statuses
-6. make sanity       → runs all scenarios → artifacts/sanity_output.json
+1. make web                     → opens localhost:8501
+2. Set a Manager ID in the sidebar (e.g. "john") for isolated memory
+3. Upload sitewatch_handbook.txt in the sidebar (auto-indexed)
+4. "I'm the site manager. Active works: crane, concrete pour Level 4, glazing facade."
+5. "Give me my morning briefing for the Sydney CBD site."
+6. Watch: three source pills appear (📖 Handbook · 🌤 Weather · 🧠 Profile)
+          → streaming cited briefing with per-activity status table
+7. make sanity                  → runs all scenarios → artifacts/sanity_output.json
 ```

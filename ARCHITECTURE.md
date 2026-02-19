@@ -58,13 +58,13 @@ Query
        ↓
   Score threshold filter (floor: 0.005) — low-confidence chunks dropped
        ↓
-  Top-5 chunks passed to synthesis
+  Top-4 chunks passed to synthesis
 ```
 
 **Citation construction:**
 - Each chunk carries `source` (filename) and `chunk_id`
-- `build_context_block()` wraps each chunk: `[Source N: filename, chunk X]\n<text>`
-- The synthesis system prompt enforces citation format: `[Source N: filename, chunk X]`
+- `build_context_block()` wraps each chunk with a numbered label
+- The synthesis system prompt enforces inline citation format: `[1]`, `[2]` in text, with a `Sources:` block at the end listing `[1] filename, chunk X`
 - `validate_citations()` (post-generation) strips any `[Source N]` references exceeding the actual chunk count — preventing hallucinated citations entirely
 
 **Failure behavior:**
@@ -84,8 +84,8 @@ Conversation turn ends
     ↓
 Stage 1: LLM evaluator
     - Reads the exchange, returns JSON: {worth_storing, confidence, fact, target}
-    - confidence must be ≥ 0.75 to proceed
-    - target: "USER" (role, preferences, active works) or "COMPANY" (site-wide learnings)
+    - confidence must be ≥ 0.65 to proceed
+    - target: "user" (role, name, schedule, active works) or "company" (site-wide thresholds, team structure, org rules)
     ↓
 Stage 2: Semantic deduplication
     - Embeds the candidate fact
@@ -93,24 +93,30 @@ Stage 2: Semantic deduplication
     - If similarity ≥ 0.85 with any existing entry → SKIP (no duplicate written)
     ↓
 Write (only if both stages pass)
-    - Appended as a timestamped bullet to USER_MEMORY.md or COMPANY_MEMORY.md
+    - Appended as a timestamped bullet to the appropriate memory file
 ```
 
 **What counts as high-signal (stored):**
-- User's role (e.g. *"Site Manager"*)
-- Active work packages (e.g. *"tower crane, concrete pour Level 4, glazing facade"*)
-- Stated preferences (e.g. *"weekly summaries on Mondays"*)
-- Site-specific learnings useful to colleagues (e.g. *"Sydney CBD site uses 30 km/h glazing limit per local by-laws"*)
+- User's role / name (e.g. *"Site Safety Manager"*, *"John"*)
+- Active work packages (e.g. *"crane ops on level 12, glazing facade"*)
+- Recurring schedules (e.g. *"daily 8 AM briefing"*)
+- Stated preferences (e.g. *"metric units"*)
+- Site-specific thresholds / rules (e.g. *"council mandates 25 km/h scaffold limit"*)
+- Team structure (e.g. *"3 glazing crews on site"*)
 
 **What is explicitly NOT stored:**
 - Raw conversation transcript
 - PII (phone numbers, personal addresses)
 - API keys or credentials
-- Anything below the 0.75 confidence threshold
+- Anything below the 0.65 confidence threshold
+- Single weather readings (today's data, not a standing fact)
+- One-off task completions
 
 **Files written:**
-- `USER_MEMORY.md` — user-specific; keyed to the current user session
-- `COMPANY_MEMORY.md` — org-wide; shared across all users
+- `users/<manager_id>/USER_MEMORY.md` — per-user; isolated by Manager ID set in the sidebar
+- `users/<manager_id>/COMPANY_MEMORY.md` — org-wide for that manager's session
+- Falls back to root `USER_MEMORY.md` / `COMPANY_MEMORY.md` when no Manager ID is set
+- Directory and files are auto-created on first write (no manual setup needed)
 
 **Implementation:** `app/memory/memory_manager.py`
 
@@ -194,5 +200,5 @@ Every document ingested is treated as **data, not instructions**:
 **What would improve with more time:**
 - **Re-ranking:** A cross-encoder reranker (e.g. `ms-marco-MiniLM`) between retrieval and synthesis for higher precision
 - **PDF page numbers:** Surface exact page in citations, not just chunk_id
-- **Multi-user persistence:** Currently user isolation is path-based; production would use a proper auth system with per-user ChromaDB namespaces
+- **Multi-user persistence:** ✅ Implemented — each Manager ID gets isolated memory under `users/<id>/`; production would add auth + per-user ChromaDB namespaces
 - **Streaming weather:** Show weather data as it arrives rather than waiting for the full sandbox result
