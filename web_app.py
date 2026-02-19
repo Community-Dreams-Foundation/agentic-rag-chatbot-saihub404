@@ -131,11 +131,14 @@ with st.sidebar:
             st.session_state.messages = []
             st.rerun()
 
-        from app.config import USER_MEMORY_FILE, COMPANY_MEMORY_FILE
-        mem_text = USER_MEMORY_FILE.read_text() if USER_MEMORY_FILE.exists() else ""
-        co_text  = COMPANY_MEMORY_FILE.read_text() if COMPANY_MEMORY_FILE.exists() else ""
-        has_mem  = mem_text and "_No memories" not in mem_text
-        has_co   = co_text and "_No memories" not in co_text
+        # Read memory from the ACTIVE user's per-user file paths (via SiteWatch instance)
+        sw_instance = get_sw()
+        mem_path = sw_instance._user_mem_file
+        co_path  = sw_instance._company_mem_file
+        mem_text = mem_path.read_text(encoding="utf-8") if mem_path.exists() else ""
+        co_text  = co_path.read_text(encoding="utf-8")  if co_path.exists()  else ""
+        has_mem  = bool(mem_text) and "_No memories" not in mem_text
+        has_co   = bool(co_text)  and "_No memories" not in co_text
 
         if has_mem or has_co:
             st.markdown("""
@@ -234,7 +237,7 @@ with st.sidebar:
 | Source | Role |
 |--------|------|
 | 🧠 **Memory** | Your role, site, active works — remembered across sessions |
-| 📖 **Handbook** | Exact thresholds, cited with `[Source N]` |
+| 📖 **Handbook** | Exact thresholds, cited with `[1]`, `[2]` inline + Sources block |
 | 🌤 **Weather** | Live conditions fetched for your location |
 
 The engine compares **actual conditions vs handbook thresholds** per activity:
