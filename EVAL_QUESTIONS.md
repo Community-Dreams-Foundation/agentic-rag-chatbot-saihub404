@@ -1,10 +1,5 @@
 # EVAL_QUESTIONS.md — SiteWatch AI Evaluation Suite
 
-> Use these tests during development and for your demo video.
-> Upload `sample_docs/sitewatch_handbook.txt` before running Section A.
-
----
-
 ## A) RAG + Citations (Core)
 
 **Setup:** Upload `sitewatch_handbook.txt` via the sidebar uploader (auto-indexed on drop).
