@@ -172,7 +172,7 @@ sample_docs/
 ---
 ## Participant Info
 
-- **Name**: Sai Ganesh Voodi
+- **Name**: Sai Ganesh
 - **Email**: saiganeshvoodi@gmail.com
 - **GitHub Username**: https://github.com/saihub404
 - **Video Walkthrough**: https://youtu.be/p-xiS6NN4_c
